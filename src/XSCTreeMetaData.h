@@ -1,5 +1,5 @@
 #pragma once
-#include "CrossSpeciesComparisonTreeMetaData_export.h"
+#include "XSCTreeMetaData_export.h"
 #include <RawData.h>
 #include <Set.h>
 #include <QJsonObject>
@@ -10,18 +10,18 @@ using namespace mv::plugin;
 // Data Type
 // =============================================================================
 class InfoAction;
-const mv::DataType CrossSpeciesComparisonTreeMetaType = mv::DataType(QString("CrossSpeciesComparisonTreeMeta"));
+const mv::DataType XSCTreeMetaType = mv::DataType(QString("XSCTreeMeta"));
 
 // =============================================================================
 // Raw Data
 // =============================================================================
 
-class CROSSSPECIESCOMPARISONTREEMETADATA_EXPORT CrossSpeciesComparisonTreeMetaData : public mv::plugin::RawData
+class XSCTREEMETADATA_EXPORT XSCTreeMetaData : public mv::plugin::RawData
 {
 public:
 
-    CrossSpeciesComparisonTreeMetaData(PluginFactory* factory) : mv::plugin::RawData(factory, CrossSpeciesComparisonTreeMetaType) { }
-    ~CrossSpeciesComparisonTreeMetaData(void) override;
+    XSCTreeMetaData(PluginFactory* factory) : mv::plugin::RawData(factory, XSCTreeMetaType) { }
+    ~XSCTreeMetaData(void) override;
 
     void init() override;
 
@@ -57,20 +57,20 @@ private:
     QString _propertyNames;
 };
 
-class  CROSSSPECIESCOMPARISONTREEMETADATA_EXPORT CrossSpeciesComparisonTreeMeta : public mv::DatasetImpl
+class  XSCTREEMETADATA_EXPORT XSCTreeMeta : public mv::DatasetImpl
 {
 public:
-    CrossSpeciesComparisonTreeMeta(QString dataName, bool mayUnderive = true, const QString& guid = "") :
+    XSCTreeMeta(QString dataName, bool mayUnderive = true, const QString& guid = "") :
         mv::DatasetImpl(dataName, mayUnderive, guid)
     {
         
     }
 
-    ~CrossSpeciesComparisonTreeMeta() override { }
+    ~XSCTreeMeta() override { }
     void init() override;
     Dataset<mv::DatasetImpl> copy() const override
     {
-        auto text = new CrossSpeciesComparisonTreeMeta(getRawDataName());
+        auto text = new XSCTreeMeta(getRawDataName());
 
         text->setText(this->text());
         text->indices = indices;
@@ -157,16 +157,16 @@ public: // Serialization
 // Factory
 // =============================================================================
 
-class CrossSpeciesComparisonTreeMetaDataFactory : public RawDataFactory
+class XSCTreeMetaDataFactory : public RawDataFactory
 {
     Q_INTERFACES(mv::plugin::RawDataFactory mv::plugin::PluginFactory)
         Q_OBJECT
-        Q_PLUGIN_METADATA(IID   "nl.BioVault.CrossSpeciesComparisonTreeMetaData"
-            FILE  "CrossSpeciesComparisonTreeMetaData.json")
+        Q_PLUGIN_METADATA(IID   "nl.BioVault.XSCTreeMetaData"
+            FILE  "XSCTreeMetaData.json")
 
 public:
-    CrossSpeciesComparisonTreeMetaDataFactory(void);
-    ~CrossSpeciesComparisonTreeMetaDataFactory(void) override {}
+    XSCTreeMetaDataFactory(void);
+    ~XSCTreeMetaDataFactory(void) override {}
 
     mv::plugin::RawData* produce() override;
 };
