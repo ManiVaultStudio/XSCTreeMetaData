@@ -5,14 +5,14 @@
 using namespace mv;
 using namespace mv::gui;
 
-InfoAction::InfoAction(QObject* parent, CrossSpeciesComparisonTreeMeta& clusters) :
+InfoAction::InfoAction(QObject* parent, XSCTreeMeta& clusters) :
     GroupAction(parent, "Group", true),
     _clusters(&clusters),
-    _treeMetaInfoAction(this, "CrossSpeciesComparisonTreeMeta info"),
+    _treeMetaInfoAction(this, "XSCTreeMeta info"),
     _leafInfoAction(this, "Leaf info"),
     _propertyInfoAction(this, "Property info")
 {
-    setText("CrossSpeciesComparisonTreeMeta JSON Info");
+    setText("XSCTreeMeta JSON Info");
 
 
     _treeMetaInfoAction.setDefaultWidgetFlags(StringAction::TextEdit);
@@ -70,7 +70,7 @@ InfoAction::InfoAction(QObject* parent, CrossSpeciesComparisonTreeMeta& clusters
     _eventListener.addSupportedEventType(static_cast<std::uint32_t>(EventType::DatasetDataSelectionChanged));
 
 
-    _eventListener.registerDataEventByType(CrossSpeciesComparisonTreeMetaType, [this, updateActions](mv::DatasetEvent* dataEvent) {
+    _eventListener.registerDataEventByType(XSCTreeMetaType, [this, updateActions](mv::DatasetEvent* dataEvent) {
         if (!_clusters.isValid())
             return;
 

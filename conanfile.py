@@ -8,7 +8,7 @@ from rules_support import PluginBranchInfo
 from conans import tools
 import shutil
 
-class CrossSpeciesComparisonTreeMetaDataConan(ConanFile):
+class XSCTreeMetaDataConan(ConanFile):
     """Class to package plugin using conan
 
     Packages both RELEASE and RELWITHDEBINFO.
@@ -17,11 +17,11 @@ class CrossSpeciesComparisonTreeMetaDataConan(ConanFile):
     as described in https://github.com/ManiVaultStudio/core/wiki/Branch-naming-rules
     """
 
-    name = "CrossSpeciesComparisonTreeMetaData"
+    name = "XSCTreeMetaData"
     description = """Data plugin that stores cell morphology based on the .swc format."""
     topics = ("manivault", "plugin", "data", "morphology")
-    url = "https://github.com/ManiVaultStudio/CrossSpeciesComparisonTreeMetaData"
-    author = "julianthijssen@gmail.com"  # conan recipe author
+    url = "https://github.com/ManiVaultStudio/XSCTreeMetaData"
+    author = "sbasu"  # conan recipe author
     license = "LGPL 3.0"
 
     short_paths = True
@@ -36,7 +36,7 @@ class CrossSpeciesComparisonTreeMetaDataConan(ConanFile):
 
     scm = {
         "type": "git",
-        "subfolder": "hdps/CrossSpeciesComparisonTreeMetaData",
+        "subfolder": "hdps/XSCTreeMetaData",
         "url": "auto",
         "revision": "auto",
     }
@@ -116,7 +116,7 @@ class CrossSpeciesComparisonTreeMetaDataConan(ConanFile):
 
     def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.configure(build_script_folder="hdps/CrossSpeciesComparisonTreeMetaData")
+        cmake.configure(build_script_folder="hdps/XSCTreeMetaData")
         cmake.verbose = True
         return cmake
 
