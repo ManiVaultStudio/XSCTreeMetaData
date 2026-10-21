@@ -141,7 +141,6 @@ class XSCTreeMetaDataConan(ConanFile):
                 relWithDebInfo_dir,
             ]
         )
-
         self.copy(pattern="*", src=package_dir)
 
     def package_id(self):
