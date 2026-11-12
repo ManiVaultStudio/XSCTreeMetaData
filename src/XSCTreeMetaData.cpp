@@ -204,17 +204,17 @@ void XSCTreeMeta::setTreeMetaLeafNames(QStringList jsonString)
 }
 QJsonObject& XSCTreeMeta::getTreeMetaData()
 {
-    return  getRawData<XSCTreeMetaData>()->getTreeMetaDataRaw();// TODO: insert return statement here
+    return  getRawData<XSCTreeMetaData>()->getTreeMetaDataRaw();
 }
 
 QStringList& XSCTreeMeta::getTreeMetaLeafNames()
 {
-    return  getRawData<XSCTreeMetaData>()->getTreeMetaLeafNamesRaw();// TODO: insert return statement here
+    return  getRawData<XSCTreeMetaData>()->getTreeMetaLeafNamesRaw();
 }
 
 QString& XSCTreeMeta::getTreeMetaPropertyNames()
 {
-    return  getRawData<XSCTreeMetaData>()->getTreeMetaPropertyNamesRaw();// TODO: insert return statement here
+    return  getRawData<XSCTreeMetaData>()->getTreeMetaPropertyNamesRaw();
 }
 
 void XSCTreeMeta::fromVariantMap(const QVariantMap& variantMap)
