@@ -143,6 +143,7 @@ mv::plugin::RawData* XSCTreeMetaDataFactory::produce()
 
 void XSCTreeMeta::init()
 {
+    setIconByName("table");
     _infoAction = QSharedPointer<InfoAction>::create(nullptr, *this);
 
     addAction(*_infoAction.get());
